@@ -1,0 +1,127 @@
+[
+    {
+        "id": "05320e9af7bf89dc",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4488d76f588d889d",
+        "type": "ibmiot in",
+        "z": "05320e9af7bf89dc",
+        "authentication": "apiKey",
+        "apiKey": "b9cdcce62d70c648",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "12052001",
+        "applicationId": "",
+        "deviceType": "Drowsy",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "993d8e88635cc9fa",
+                "3c5a8204eade3163"
+            ]
+        ]
+    },
+    {
+        "id": "993d8e88635cc9fa",
+        "type": "debug",
+        "z": "05320e9af7bf89dc",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3c5a8204eade3163",
+        "type": "function",
+        "z": "05320e9af7bf89dc",
+        "name": "Message Status",
+        "func": "msg.payload=msg.payload.Status\nif(msg.payload==0)\n{\n    msg.payload=\"Good to go!\";\n}\nelse\n{\n    msg.payload=\"Wake Up!\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "da1ed8df2b51be11"
+            ]
+        ]
+    },
+    {
+        "id": "da1ed8df2b51be11",
+        "type": "ui_text",
+        "z": "05320e9af7bf89dc",
+        "group": "a180eac2a2a3b245",
+        "order": 1,
+        "width": 22,
+        "height": 10,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 570,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b9cdcce62d70c648",
+        "type": "ibmiot",
+        "name": "",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "a180eac2a2a3b245",
+        "type": "ui_group",
+        "name": "Drowsiness Levels",
+        "tab": "7ec3edca44946219",
+        "order": 1,
+        "disp": true,
+        "width": 22,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7ec3edca44946219",
+        "type": "ui_tab",
+        "name": "Drowsiness Detection",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
