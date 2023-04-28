@@ -1,0 +1,15 @@
+2023-04-27 11:46:47,085   ibmiotf.device.Client      INFO    Connected successfully: d:96ei56:SQUID:12333
+2023-04-27 11:46:47,101   ibmiotf.device.Client      INFO    Disconnected from the IBM Watson IoT Platform
+2023-04-27 11:46:47,101   ibmiotf.device.Client      INFO    Closed connection to the IBM Watson IoT Platform
+2023-04-27 12:24:51,408   ibmiotf.device.Client      INFO    Connected successfully: d:96ei56:SQUID:12333
+2023-04-27 12:24:51,440   ibmiotf.device.Client      INFO    Disconnected from the IBM Watson IoT Platform
+2023-04-27 12:24:51,462   ibmiotf.device.Client      INFO    Closed connection to the IBM Watson IoT Platform
+2023-04-27 12:25:45,020   ibmiotf.device.Client      INFO    Connected successfully: d:96ei56:SQUID:12333
+2023-04-27 12:25:45,054   ibmiotf.device.Client      INFO    Disconnected from the IBM Watson IoT Platform
+2023-04-27 12:25:45,067   ibmiotf.device.Client      INFO    Closed connection to the IBM Watson IoT Platform
+2023-04-27 12:30:14,312   ibmiotf.device.Client      INFO    Connected successfully: d:96ei56:SQUID:12333
+2023-04-27 12:30:14,346   ibmiotf.device.Client      INFO    Disconnected from the IBM Watson IoT Platform
+2023-04-27 12:30:14,352   ibmiotf.device.Client      INFO    Closed connection to the IBM Watson IoT Platform
+2023-04-27 12:34:28,912   ibmiotf.device.Client      INFO    Connected successfully: d:96ei56:SQUID:12333
+2023-04-27 12:34:28,989   ibmiotf.device.Client      INFO    Disconnected from the IBM Watson IoT Platform
+2023-04-27 12:34:29,007   ibmiotf.device.Client      INFO    Closed connection to the IBM Watson IoT Platform
