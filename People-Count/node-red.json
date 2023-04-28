@@ -1,0 +1,185 @@
+[
+    {
+        "id": "c5934f78f4190c79",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e5f73f2b952aa373",
+        "type": "ibmiot in",
+        "z": "c5934f78f4190c79",
+        "authentication": "apiKey",
+        "apiKey": "6d8be82fde335a13",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "12345",
+        "applicationId": "",
+        "deviceType": "PeopleCounter",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT PeopleCounter",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": "",
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "a6dc594121aa7d9c",
+                "e79b5aeebda95012",
+                "c4f36429d4857ac1"
+            ]
+        ]
+    },
+    {
+        "id": "a6dc594121aa7d9c",
+        "type": "debug",
+        "z": "c5934f78f4190c79",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e79b5aeebda95012",
+        "type": "function",
+        "z": "c5934f78f4190c79",
+        "name": "UP",
+        "func": "msg.payload=msg.payload.UP\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "581720e738110749"
+            ]
+        ]
+    },
+    {
+        "id": "581720e738110749",
+        "type": "ui_gauge",
+        "z": "c5934f78f4190c79",
+        "name": "",
+        "group": "b7771ab55bf3a9e9",
+        "order": 2,
+        "width": "8",
+        "height": "6",
+        "gtype": "donut",
+        "title": "People Coming in",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "20",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c4f36429d4857ac1",
+        "type": "function",
+        "z": "c5934f78f4190c79",
+        "name": "DOWN",
+        "func": "msg.payload=msg.payload.down\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "6b754b60b6277219"
+            ]
+        ]
+    },
+    {
+        "id": "6b754b60b6277219",
+        "type": "ui_gauge",
+        "z": "c5934f78f4190c79",
+        "name": "",
+        "group": "b7771ab55bf3a9e9",
+        "order": 1,
+        "width": "8",
+        "height": "6",
+        "gtype": "donut",
+        "title": "People Coming out",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "20",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6d8be82fde335a13",
+        "type": "ibmiot",
+        "name": "",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "b7771ab55bf3a9e9",
+        "type": "ui_group",
+        "name": "People Counter",
+        "tab": "fac361559fed2381",
+        "order": 1,
+        "disp": true,
+        "width": "22",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fac361559fed2381",
+        "type": "ui_tab",
+        "name": "Smart IoT Based People Counter",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
