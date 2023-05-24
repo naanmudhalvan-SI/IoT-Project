@@ -1,0 +1,73 @@
+#include <WiFi.h>
+#include <PubSubClient.h>
+#include <DHTesp.h>
+#include <ESP32Servo.h>
+
+#include <LiquidCrystal.h>
+
+const int trigPin_ent = 4;
+const int echoPin_ent = 2;
+const int trigPin_ex = 18;
+const int echoPin_ex = 19;
+int count = 0;
+
+
+long duration_ent;
+int distance_ent;
+long duration_ex;
+int distance_ex;
+
+
+const int rs = 26, en = 25, d4 = 27, d5 = 14, d6 = 12, d7 = 13;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup()
+{
+
+  pinMode(trigPin_ent, OUTPUT);
+  pinMode(echoPin_ent, INPUT);
+  pinMode(trigPin_ex, OUTPUT);
+  pinMode(echoPin_ex, INPUT);
+  lcd.begin(16,2);
+  lcd.clear();
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  lcd.clear();
+  digitalWrite(trigPin_ent,HIGH);
+  delayMicroseconds(1000);
+  digitalWrite(trigPin_ent,LOW);
+  duration_ent = pulseIn(echoPin_ent, HIGH);
+  distance_ent = (duration_ent/2)/29.1;
+  delay(500);
+  lcd.clear();
+  digitalWrite(trigPin_ex,HIGH);
+  delayMicroseconds(1000);
+  digitalWrite(trigPin_ex,LOW);
+  duration_ex = pulseIn(echoPin_ex, HIGH);
+  distance_ex = (duration_ex/2)/29.1;
+  Serial.print("Distance while entering:");
+  Serial.println(distance_ent);Serial.println("\n");
+  Serial.print("Distance while exiting:");
+  Serial.println(distance_ex);
+  delay(500);
+  if (distance_ent <100)
+  {
+    count++;
+  }
+  if (distance_ex <100)
+  {
+    count--;
+  } 
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.print("No. of Person:");
+  lcd.print(count);
+  delay(1000);
+  Serial.print("No. of Person:");
+  Serial.print(count);
+  Serial.println("\n");
+  delay(1000);
+}
